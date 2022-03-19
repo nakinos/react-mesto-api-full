@@ -75,9 +75,8 @@ class Api {
 }
 
 export const api = new Api({
-  baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-30',
+  baseUrl: 'https://api.mesto.nakinos.nomoredomains.work',
   headers: {
-    authorization: 'c12bf14b-6b87-475d-91b9-c3e4fe46ec1c',
     'Content-Type': 'application/json'
   }
 });
