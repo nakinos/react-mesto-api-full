@@ -10,7 +10,7 @@ node_modules
 .npm
 
 # production
-/build
+build
 
 # Optional REPL history
 .DS_Store

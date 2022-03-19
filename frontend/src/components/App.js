@@ -56,12 +56,15 @@ function App() {
   }, []);
 
   useEffect(() => {
-    Promise.all([api.getUserInfo(), api.getInitialCards()])
-      .then(([currenUserInfo, cardsData]) => {
-        setCurrentUser(currenUserInfo);
-        setCards(cardsData);
-      })
-      .catch(err => console.log(err));
+    const currentUserId = localStorage.getItem('userId');
+    if (currentUserId) {
+      Promise.all([api.getUserInfo(), api.getInitialCards()])
+        .then(([currenUserInfo, cardsData]) => {
+          setCurrentUser(currenUserInfo);
+          setCards(cardsData);
+        })
+        .catch(err => console.log(err));
+    }
   }, []);
 
   function handleEditAvatarClick() {
