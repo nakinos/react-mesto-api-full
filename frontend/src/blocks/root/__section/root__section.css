@@ -1,0 +1,6 @@
+@media screen and (max-width:920px) {
+  .root__section {
+    padding-right: 19px;
+    padding-left: 19px;
+  }
+}
