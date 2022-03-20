@@ -45,7 +45,7 @@ function App() {
         .then(res => {
           if (res) {
             setLoggedIn(true);
-            setEmail(res.data.email);
+            setEmail(res.email);
             history.push('/');
           } else {
             localStorage.removeItem('userId');
@@ -53,7 +53,7 @@ function App() {
         })
         .catch(err => console.log(err));
     } 
-  }, []);
+  }, [history]);
 
   useEffect(() => {
     const currentUserId = localStorage.getItem('userId');
@@ -65,7 +65,7 @@ function App() {
         })
         .catch(err => console.log(err));
     }
-  }, []);
+  }, [loggedIn]);
 
   function handleEditAvatarClick() {
     setIsEditAvatarPopupOpen(true);
@@ -89,7 +89,7 @@ function App() {
   }
 
   function handleCardLikeClick(card) {
-    const isLiked = card.likes.some(i => i._id === currentUser._id);
+    const isLiked = card.likes.some(like => like === currentUser._id);
 
     api.changeLikeCardStatus(card._id, !isLiked)
       .then((newCard) => {
